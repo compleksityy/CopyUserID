@@ -1,99 +1,103 @@
 # CopyUserID
 
-A Vencord userplugin that adds a button to Discord's message hover bar that copies the message author's Discord User ID.
+A simple Vencord plugin that adds a button to the message hover bar that copies the Discord User ID of the message author.
 
-## Requirements
+## What You Need
 
-- Git
-- Node.js 22 or newer
-- pnpm
+Before installing CopyUserID, you need:
+
 - Vencord
+- Git
+- Node.js
+- pnpm
 
-## Installation
+If you have not built Vencord from source before, follow the official Vencord guide:
 
-### 1. Set up Vencord
+https://docs.vencord.dev/installing/from-source/
 
-If you have not already set up Vencord from source, follow the official Vencord guide:
+## Installing CopyUserID
+
+### 1. Download CopyUserID
+
+Download the `CopyUserID` folder from this GitHub repository.
+
+You only need the plugin. You do not need to download or modify the rest of Vencord.
+
+The folder should contain:
+
+```text
+CopyUserID/
+└── index.tsx
+```
+
+### 2. Create the `userplugins` folder
+
+Vencord requires custom plugins to be placed inside its `src/userplugins` folder.
+
+Follow the official Vencord guide for creating the folder:
 
 https://docs.vencord.dev/installing/custom-plugins/
 
-You need a source build of Vencord because custom plugins are compiled into Vencord when it is built.
+Your Vencord folder should eventually look like this:
 
-### 2. Download CopyUserID
+```text
+Vencord/
+└── src/
+    └── userplugins/
+        └── CopyUserID/
+            └── index.tsx
+```
 
-Clone this repository into Vencord's `src/userplugins` folder.
+### 3. Rebuild Vencord
 
-From your Vencord directory, run:
+After placing CopyUserID inside `src/userplugins`, you need to rebuild Vencord.
 
-    git clone https://github.com/compleksityy/CopyUserID.git src/userplugins/CopyUserID
+Follow the official Vencord build guide:
 
-Your folder structure should look like:
+https://docs.vencord.dev/installing/building/
 
-    Vencord/
-    └── src/
-        └── userplugins/
-            └── CopyUserID/
-                └── index.tsx
+After the build finishes, restart Discord.
 
-### 3. Install dependencies
+### 4. Enable CopyUserID
 
-If you have not already installed Vencord's dependencies, run:
+Open Discord and go to:
 
-    cd Vencord
-    pnpm install
+**Settings → Vencord → Plugins**
 
-### 4. Build Vencord
-
-Run:
-
-    pnpm build
-
-This compiles Vencord with CopyUserID included.
-
-### 5. Inject your custom Vencord build
-
-For the Discord Desktop client, run:
-
-    pnpm inject
-
-Follow the prompts to select your Discord installation.
-
-### 6. Enable CopyUserID
-
-Restart Discord.
-
-Open:
-
-**Discord Settings → Vencord → Plugins**
-
-Find **CopyUserID** and enable it.
+Find `CopyUserID` and enable it.
 
 ## Usage
 
-Hover over any Discord message.
+Hover over a Discord message.
 
 A **Copy User ID** button will appear alongside the other message buttons.
 
 Click it to copy the message author's Discord User ID to your clipboard.
 
-## Updating
+## File Structure
 
-To update CopyUserID, go into the plugin directory and run:
+The plugin should be installed like this:
 
-    cd Vencord/src/userplugins/CopyUserID
-    git pull
+```text
+Vencord/
+└── src/
+    └── userplugins/
+        └── CopyUserID/
+            └── index.tsx
+```
 
-Then rebuild Vencord:
+Do not put the plugin in `src/plugins`.
 
-    cd ../../..
-    pnpm build
+Custom plugins belong in `src/userplugins`.
 
-If necessary, run:
+## Credits
 
-    pnpm inject
+Built for Vencord.
 
-and restart Discord.
+Official Vencord custom plugin guide:
 
-## License
+https://docs.vencord.dev/installing/custom-plugins/
 
-GPL-3.0
+## Disclaimer
+
+CopyUserID is a third-party custom plugin and is not affiliated with or officially supported by Vencord.
